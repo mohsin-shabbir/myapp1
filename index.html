@@ -6,13 +6,43 @@
 <link rel="stylesheet" href="css/style.css"  />
 <script src="lib/jquery-1.8.2.min.js"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+function getEmployess()
+{
+	//alert("herlej");
+	$.ajax
+	(
+	{
+		type: 'post',
+		url:'getAirports.php'
+	}
+	
+	).done(function(data)
+	{
+		$('#showAirpors').html(data);
+	}
+	).fai(function()
+	{
+		alert('Sorry there is some issues.');
+	}
+	)
+}
 
+$(document).ready(function()
+{
+	/////alert("helllo");
+	
+}
+);
+
+</script>
 </head>
 
 <body>
 <div class="wraper">
-<input type="button" id="btn" value="Show Detail" style="border-radius:5px; margin: 0 auto; width:98%; color:#FFF; font-weight:bold" />
-<div style="width:98%; background:#999; color:#FFF; border-radius:5px; margin: 0 auto; display:none" id="details" >
+<input type="button" id="btn" value="Mobit Employees" style="border-radius:5px; margin: 0 auto; width:98%; color:#FFF; font-weight:bold" />
+<input type="button" id="btn2" value="Get Airports" onclick="return getEmployess()" style="border-radius:5px; margin: 0 auto; width:98%; color:#FFF; font-weight:bold" />
+<div class="toggleDiv" id="details" >
 <ul>
  <li>Mr.Mohsin</li>
  <li>Mr.Kashan</li>
@@ -20,6 +50,9 @@
  <li>Mr.Asif</li>
  <li>Miss.Areeba</li>
 </ul>
+</div>
+<div class="airportsDiv" id="showAirpors">
+	
 </div>
 </div>
 </body>

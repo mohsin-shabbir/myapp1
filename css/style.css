@@ -10,3 +10,18 @@ body{
 		margin:0 auto;
 	    
 	}
+	.toggleDiv
+	{
+		width:98%; background:#999; color:#FFF; border-radius:5px; margin: 0 auto; display:none;
+	}
+	.airportsDiv
+	{
+		width:98%; background:#999; color:#FFF; border-radius:5px; margin: 0 auto;
+		text-align:center;
+	}
+	.airports
+	{
+		width:200px;
+		border:1px solid;
+		background-color:#CCC;
+	}
