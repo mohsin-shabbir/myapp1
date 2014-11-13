@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	/*background-image:url(../images/appback.jpg) no-repeat; */
+	background-color:#636;
+	}
+.wraper
+	{
+		width:100%;
+		margin:0 auto;
+	    
+	}

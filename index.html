@@ -3,18 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mohsin</title>
+<link rel="stylesheet" href="css/style.css"  />
 <script src="lib/jquery-1.8.2.min.js"></script>
-<script type="text/javascript">
-function showDetail()
-{
-	///alert("Hello");
-	document.getElementById("details").style.display = "block";
-}
-</script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 
 <body>
-<input type="button" onclick="return showDetail()" value="Show Detail" style="border-radius:5px; margin: 0 auto; width:98%; color:#FFF; font-weight:bold" />
+<div class="wraper">
+<input type="button" id="btn" value="Show Detail" style="border-radius:5px; margin: 0 auto; width:98%; color:#FFF; font-weight:bold" />
 <div style="width:98%; background:#999; color:#FFF; border-radius:5px; margin: 0 auto; display:none" id="details" >
 <ul>
  <li>Mr.Mohsin</li>
@@ -24,5 +21,17 @@ function showDetail()
  <li>Miss.Areeba</li>
 </ul>
 </div>
+</div>
 </body>
+<script type="text/javascript">
+
+$( "#btn" ).click(function() {
+	
+  $( "#details" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+
+
+</script>	
 </html>
