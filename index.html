@@ -5,35 +5,60 @@
 <title>Mohsin</title>
 <link rel="stylesheet" href="css/style.css"  />
 <script src="lib/jquery-1.8.2.min.js"></script>
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+
 <script>
 function getEmployess()
 {
 	//alert("herlej");
-	$.ajax
-	(
-	{
-		type: 'post',
-		url:'getAirports.php'
-	}
-	
-	).done(function(data)
-	{
-		$('#showAirpors').html(data);
-	}
-	).fai(function()
-	{
+	//$.mobile.allowCrossDomainPages = true;
+    $.support.cors = true;
+	$.ajax({
+		type: 'get',
+		datatype:'json',
+		url:'http://198.50.129.105/mohsin/app/mobitServices.php?service=getAllAirports'
+	})
+	.done(function(data){
+		//alert(data.code);
+		//alert(data.message);
+		///alert(data.result);
+		///alert(data);
+		var air = data.result.airportsDetail;
+		var len = air.length;
+		if(len>0)
+		{
+			//alert('greater');
+		var selectList = "<select name='airport' class='airports' id='airportID'>";
+		//$("showAirpors").appendTo("<select name='airport' id='airport' class='airports'>");
+		for(var i =0; i<len; i++)
+		{
+			selectList += "<option value="+air[i].id+">"+air[i].name+"</option>";
+			//alert(air[i].id);
+		    //alert(air[i].name);
+		}
+		selectList += "</select>";
+		$('#showAirpors').html(selectList);
+		}
+		else
+		{
+			$("#showAirpors").append("<div>There is no airport.</div>");
+		}
+		//alert(len);
+		
+		//var obj = jQuery.parseJSON( data );
+		//console.log(obj);
+		////alert(obj.length);
+      // alert( obj.name === "John" );
+		//alert('done');
+		//var airports= $.parseJson(data);
+		//for(i =0;i<airports.length;i++){
+			//alert(airports[i]);
+		///}
+	})
+	.fail(function(){
 		alert('Sorry there is some issues.');
-	}
-	)
+	})
 }
 
-$(document).ready(function()
-{
-	/////alert("helllo");
-	
-}
-);
 
 </script>
 </head>
