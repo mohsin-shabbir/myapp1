@@ -9,8 +9,6 @@
 <script>
 function getEmployess()
 {
-	//alert("herlej");
-	//$.mobile.allowCrossDomainPages = true;
     $.support.cors = true;
 	$.ajax({
 		type: 'get',
@@ -18,23 +16,16 @@ function getEmployess()
 		url:'http://198.50.129.105/mohsin/app/mobitServices.php?service=getAllAirports'
 	})
 	.done(function(data){
-		//alert(data.code);
-		//alert(data.message);
-		///alert(data.result);
-		///alert(data);
+		
 		var air = data.result.airportsDetail;
 		var len = air.length;
 		if(len>0)
-		{
-			//alert('greater');
+		{		
 		var selectList = "<select name='airport' class='airports' id='airportID'>";
-		//$("showAirpors").appendTo("<select name='airport' id='airport' class='airports'>");
 		for(var i =0; i<len; i++)
 		{
 			selectList += "<option value="+air[i].id+">"+air[i].name+"</option>";
-			//alert(air[i].id);
-		    //alert(air[i].name);
-		}
+					}
 		selectList += "</select>";
 		$('#showAirpors').html(selectList);
 		}
@@ -42,17 +33,6 @@ function getEmployess()
 		{
 			$("#showAirpors").append("<div>There is no airport.</div>");
 		}
-		//alert(len);
-		
-		//var obj = jQuery.parseJSON( data );
-		//console.log(obj);
-		////alert(obj.length);
-      // alert( obj.name === "John" );
-		//alert('done');
-		//var airports= $.parseJson(data);
-		//for(i =0;i<airports.length;i++){
-			//alert(airports[i]);
-		///}
 	})
 	.fail(function(){
 		alert('Sorry there is some issues.');
@@ -69,11 +49,11 @@ function getEmployess()
 <input type="button" id="btn2" value="Get Airports" onclick="return getEmployess()" style="border-radius:5px; margin: 0 auto; width:98%; color:#FFF; font-weight:bold" />
 <div class="toggleDiv" id="details" >
 <ul>
- <li>Mr.Mohsin</li>
- <li>Mr.Kashan</li>
- <li>Mr.Bilal</li>
- <li>Mr.Asif</li>
- <li>Miss.Areeba</li>
+ <li><a href="mohsin.html">Mr.Mohsin</a></li>
+ <li><a href="kashan.html">Mr.Kashan</a></li>
+ <li><a href="bilal.html">Mr.Bilal</a></li>
+ <li><a href="asif.html">Mr.Asif</a></li>
+ <li><a href="areeba.html">Miss.Areeba</a></li>
 </ul>
 </div>
 <div class="airportsDiv" id="showAirpors">
